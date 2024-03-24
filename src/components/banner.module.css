@@ -1,0 +1,41 @@
+.banner {
+    display: block;
+    padding: 5px;
+    margin: 0;
+    width: 100vw;
+    height: 65vh;
+    position: relative;
+}
+
+.bannerText{
+    position: relative;
+    top: 18rem;
+    z-index: 20;
+    text-align: center;
+    opacity: 1;
+    transition: transform 0.25s ease
+}
+.bannerText h3{
+    opacity: 0;
+    transition: opacity 0.4s ease
+}
+
+.bannerImg {
+    opacity: 1;
+    display: block;
+}
+
+.banner:hover .bannerText h3{
+    opacity: 1; 
+}
+.banner:hover .bannerText h1{
+    font-weight: 600;
+}
+.banner:hover .bannerText {
+    opacity: 1; 
+    transform:  scale(150%);
+}
+.banner:hover .bannerImg {
+    opacity: 0.8;
+}
+
