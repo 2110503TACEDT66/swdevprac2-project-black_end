@@ -1,4 +1,6 @@
-interface HospitalItem {
+import { ObjectId } from "mongodb"
+
+interface CompanyItem {
     _id: string,
     name: string,
     address: string,
@@ -11,17 +13,26 @@ interface HospitalItem {
     id: string
   }
   
-  interface HospitalJson {
+  interface CompanyJson {
     success: boolean,
     count: number,
     pagination: Object,
-    data: HospitalItem[]
+    data: CompanyItem[]
   }
 
-  interface BookingItem{
-    name:string,
-    surname:string,
+  interface InterviewItem{
+    interviewDate:string,
+    company:string,
     id:string,
-    hospital:string,
-    bookDate:string
+    user:ObjectId,
+    createAt:string
   }
+
+  // interface UserJson{
+  //   name:string,
+  //   tel:string,
+  //   email:string,
+  //   role:string,
+  // }
+
+  
