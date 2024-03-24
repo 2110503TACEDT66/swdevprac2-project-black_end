@@ -8,13 +8,7 @@ import { useSession } from "next-auth/react";
 
 
 export default function Banner() {
-  const cover = [
-    "/img/cover.jpg",
-    "/img/cover2.jpg",
-    "/img/cover3.jpg",
-    "/img/cover4.jpg",
-  ];
-  const [index, setIndex] = useState(0);
+
   const router = useRouter();
   const {data:session} = useSession();  
   console.log(session?.user.token)
@@ -23,20 +17,17 @@ export default function Banner() {
   return (
     <div
       className={styles.banner}
-      onClick={() => {
-        setIndex(index + 1);
-      }}
     >
       <div className={styles.bannerImg}>
         <Image
-          src={cover[index % 4]}
+          src='/img/cover.jpg'
           alt="cover"
           fill={true}
           objectFit="cover"
         />
         <div className={styles.bannerText}>
-          <h1 className="text-4xl">Vaccine Service Center</h1>
-          <h3 className="text-xl font-serif ">Trusted, Efficient, and Safe</h3>
+          <h1 className="text-4xl">Online Job Fair Registration</h1>
+          <h3 className="text-xl font-serif ">Unlock Your Potential and Secure Your Dream Job - Register Now!</h3>
         </div>
         {
           session? <div className="z-30 absolute top-5 right-10 font-semibold 
@@ -53,7 +44,7 @@ export default function Banner() {
             router.push("/hospital");
           }}
         >
-          Select Hospital
+          Select Company you wanna join
         </button>
       </div>
     </div>
