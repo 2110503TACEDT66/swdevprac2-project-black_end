@@ -16,7 +16,7 @@ export default async function HospitalCatalog({hospitalJson}:{hospitalJson:Promi
     return(
 
         <>
-        Explore {HospitalJsonReady.count} Hospitals in our care
+        Explore {HospitalJsonReady.count} Companies in our event
             <div className="m-20 flex flex-row items-center justify-around flex-wrap p-10">
             {
                 HospitalJsonReady.data.map((HospitalItem:HospitalItem)=>(
