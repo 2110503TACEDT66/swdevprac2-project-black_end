@@ -11,14 +11,14 @@ export default async function Hospital() {
   const hospitals = await getHospitals();
   return (
     <main className="text-center p-5">
-      <h1 className="text-xl font-medium">Select your hospital</h1>
+      <h1 className="text-xl font-medium">Select your company</h1>
       
       <Suspense fallback={<p>Loading...<LinearProgress/></p>}>
         <HospitalCatalog hospitalJson={hospitals}/>
       </Suspense>
-      <hr className="my-10"/>
+      {/* <hr className="my-10"/>
       <h1 className="text-xl font-medium ">Try Client-side Card Panel</h1>
-      <CardPanel/>
+      <CardPanel/> */}
     </main>
   );
 }
