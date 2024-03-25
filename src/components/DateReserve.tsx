@@ -6,16 +6,27 @@ import { Select,MenuItem } from "@mui/material"
 import { Dayjs } from "dayjs"
 import { useState } from "react"
 import getCompanies from "@/libs/getCompanies"
+import { useEffect } from "react"
 
 export default function DateReserve({onDateChange,onHospitalChange}
     :{onDateChange:Function,onHospitalChange:Function}){
     
-    // const companies = await getCompanies();
-    // const CompanyJson = await companies;
-
-    const [reserveDate,setReserveDate] = useState<Dayjs|null>(null)
-    const [selectedHospital, setSelectedHospital] = useState<string|null>('Chula');
-
+        const [reserveDate, setReserveDate] = useState<Dayjs|null>(null)
+        const [selectedHospital, setSelectedHospital] = useState<string|null>('Chula');
+        const [companyJson, setCompanyJson] = useState(null);
+    
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const companies = await getCompanies();
+                    setCompanyJson(companies);
+                } catch (error) {
+                    console.error('Failed to fetch companies:', error);
+                }
+            };
+    
+            fetchData();
+        }, []);
     return(
         <form className="bg-slate-100 rounded-lg space-x-5 space-y-2 
         w-fit px-10 py-5 flex flex-row justify-center">
@@ -28,14 +39,12 @@ export default function DateReserve({onDateChange,onHospitalChange}
             className="h-[2em] w-[200px]" value={selectedHospital}
             onChange={(event)=>{ const value = event.target.value; setSelectedHospital(value);onHospitalChange(value)}}>
                 {
-                    // CompanyJson.data.map((CompanyItem:CompanyItem)=>(
-                    //     <MenuItem>
-                    //     </MenuItem>
-                    // ))
+                    companyJson && companyJson.data.map((CompanyItem)=>(
+                        <MenuItem key={CompanyItem.id} value={CompanyItem.name}>
+                        {CompanyItem.name}
+                        </MenuItem>
+                    ))
                 }
-                <MenuItem value={'Chula'}>Chulalongkorn Hospital</MenuItem>
-                <MenuItem value={'Rajavithi'}>Rajavithi Hospital</MenuItem>
-                <MenuItem value={'Thammasat'}>Thammasat University Hospital </MenuItem>
             </Select>
         </form>
     )
