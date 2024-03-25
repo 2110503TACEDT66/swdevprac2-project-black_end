@@ -1,7 +1,7 @@
 'use client'
 
 import CardPanel from "@/components/CardPanel";
-import HospitalCatalog from "@/components/HospitalCatalog";
+import HospitalCatalog from "@/components/CompanyCatalog";
 import getCompanies from "@/libs/getCompanies";
 import { LinearProgress } from "@mui/material";
 import { Suspense } from "react";
@@ -14,7 +14,7 @@ export default async function Hospital() {
       <h1 className="text-xl font-medium">Select your company</h1>
       
       <Suspense fallback={<p>Loading...<LinearProgress/></p>}>
-        <HospitalCatalog hospitalJson={companies}/>
+        <HospitalCatalog companyJson={companies}/>
       </Suspense>
       {/* <hr className="my-10"/>
       <h1 className="text-xl font-medium ">Try Client-side Card Panel</h1>

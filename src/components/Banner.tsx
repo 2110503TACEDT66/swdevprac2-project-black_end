@@ -41,7 +41,7 @@ export default function Banner() {
         hover:bg-indigo-600 hover:text-white hover:border-transparent"
           onClick={(e) => {
             e.stopPropagation();
-            router.push("/hospital");
+            router.push("/company");
           }}
         >
           Select Company you wanna join

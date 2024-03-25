@@ -1,27 +1,27 @@
 import { createSlice,PayloadAction } from "@reduxjs/toolkit"; 
 
 
-type BookState ={
-    bookItems:BookingItem[];
+type CompanyState ={
+    companyItems:BookingItem[];
 }
 
-const initialState:BookState = {bookItems:[]};
+const initialState:CompanyState = {companyItems:[]};
 
 export const bookSlice=createSlice({
     name:'book',
     initialState,
     reducers:{
         addBooking:(state,action:PayloadAction<BookingItem>)=>{
-            const existingBookingIndex = state.bookItems.findIndex(booking => booking.id === action.payload.id);
+            const existingBookingIndex = state.companyItems.findIndex(booking => booking.id === action.payload.id);
             if(existingBookingIndex !== -1){
-                state.bookItems[existingBookingIndex] = action.payload;
+                state.companyItems[existingBookingIndex] = action.payload;
             }else{
-                state.bookItems.push(action.payload);
+                state.companyItems.push(action.payload);
             }
         },
         removeBooking:( state, action:PayloadAction<string> )=>{
-            const remainItems = state.bookItems.filter(obj => obj.id !== action.payload)
-            state.bookItems = remainItems;
+            const remainItems = state.companyItems.filter(obj => obj.id !== action.payload)
+            state.companyItems = remainItems;
         },
     }
 })

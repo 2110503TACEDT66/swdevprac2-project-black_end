@@ -4,9 +4,9 @@ import Link from "next/link";
 import Card from "./Card";
 import getCompanies from "@/libs/getCompanies";
 
-export default async function HospitalCatalog({hospitalJson}:{hospitalJson:Promise<HospitalJson>}){
+export default async function HospitalCatalog({companyJson}:{companyJson:Promise<companyJson>}){
 
-    var CompanyJsonReady = await hospitalJson;
+    var CompanyJsonReady = await companyJson;
     if(!CompanyJsonReady){
         CompanyJsonReady = await getCompanies();
     }
@@ -20,7 +20,7 @@ export default async function HospitalCatalog({hospitalJson}:{hospitalJson:Promi
             <div className="m-20 flex flex-row items-center justify-around flex-wrap p-10">
             {
                 CompanyJsonReady.data.map((CompanyItem:CompanyItem)=>(
-                    <Link href={`/hospital/${CompanyItem.id}`} className="w-1/5">
+                    <Link href={`/company/${CompanyItem.id}`} className="w-1/5">
                         <Card hospitalName={CompanyItem.name} imgSrc={CompanyItem.picture} />
                     </Link>
                 ))
