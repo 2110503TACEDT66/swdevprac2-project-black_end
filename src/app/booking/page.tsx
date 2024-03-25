@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux"
 import { AppDispatch } from "@/redux/store"
 
 import { addBooking } from "@/redux/features/bookSlice"
+import { create } from "domain"
 
 export default function Booking(){
 
@@ -22,21 +23,22 @@ export default function Booking(){
 
     const dispatch = useDispatch<AppDispatch>();
     const MakeBooking = () =>{
-        console.log('Booking in progress')
-        if(fname && lastname && citizenID && pickupDate && chooseHospital){
+        console.log('Booking Interview in progress')
+        if(fname && lastname && citizenID && interviewDate && chooseCompany){
             const item:BookingItem = {
+                id:citizenID,
+                company:chooseCompany,
+                interviewDate:dayjs(interviewDate).format('YYYY/MM/DD'),
+                createdAt:Date.now(),
                 name:fname,
                 surname:lastname,
-                id:citizenID,
-                hospital:chooseHospital,
-                bookDate:dayjs(pickupDate).format('YYYY/MM/DD')
             }
             console.log('success Booking')
             console.log(fname)
             console.log(lastname)
             console.log(citizenID)
-            console.log(chooseHospital)
-            console.log(dayjs(pickupDate).format('YYYY/MM/DD'))
+            console.log(chooseCompany)
+            console.log(dayjs(interviewDate).format('YYYY/MM/DD'))
             dispatch(addBooking(item));
         }
         if(!fname){
@@ -48,16 +50,16 @@ export default function Booking(){
         if(!citizenID){
             alert('cId');
         }
-        if(!pickupDate){
+        if(!interviewDate){
             alert('No date');
         }
-        if(!chooseHospital){
-            alert('hospital');
+        if(!chooseCompany){
+            alert('company');
         }
     }
 
-    const [pickupDate,setPickupDate] = useState<Dayjs|null>(null)
-    const [chooseHospital, setChooseHospital] = useState<string|null>('Chula');
+    const [interviewDate,setinterviewDate] = useState<Dayjs|null>(null)
+    const [chooseCompany, setchooseCompany] = useState<string|null>('Chula');
 
     const [fname, setFName] = useState('');
     const [lastname, setLastname] = useState('');
@@ -66,7 +68,7 @@ export default function Booking(){
     return(
         <main className="w-[100%] flex flex-col items-center space-y-10">
             <div className="text-2xl font-medium underline text-center text-teal-500 mt-8 transition transform duration-150 hover:text-cyan-900">
-                Vaccine Booking
+                Interview Session Booking
             </div>
             {/* <div className="text-2xl bg-blue-300 rounded-lg p-3 ring-2 hover:ring-inset hover:bg-blue-200">
                 <table className="table-auto border-seperate border-spacing-2">
@@ -100,13 +102,13 @@ export default function Booking(){
                 </table> 
             </div>
             <div className="p-10">
-            <DateReserve onDateChange={(value:Dayjs)=>{setPickupDate(value)}} 
-            onHospitalChange={(value:string)=>{setChooseHospital(value)}} />
+            <DateReserve onDateChange={(value:Dayjs)=>{setinterviewDate(value)}} 
+            onHospitalChange={(value:string)=>{setchooseCompany(value)}} />
             </div>
             <Button name='Book Vaccine' 
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full align-left "
             onClick={MakeBooking}>
-                Book Vaccine
+                Book Interview Sessions
             </Button>
             </div>
             

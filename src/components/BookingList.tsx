@@ -8,7 +8,7 @@ export default function BookingList(){
     if(!companyItems || companyItems.length===0){
         return (
 
-           <p className="text-2xl">No Vaccine Booking</p>
+           <p className="text-2xl">No Interview Session Booking</p>
         )
     }
     const dispatch=useDispatch<AppDispatch>()

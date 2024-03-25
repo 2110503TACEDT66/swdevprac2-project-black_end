@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb"
+
 interface CompanyItem {
     _id: string,
     name: string,
@@ -22,7 +24,9 @@ interface CompanyItem {
     interviewDate:string,
     company:string,
     id:string,
-    createAt:string
+    createdAt:Date,
+    name:string,
+    surname:string
   }
 
 

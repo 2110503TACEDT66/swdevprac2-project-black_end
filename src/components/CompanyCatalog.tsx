@@ -17,11 +17,11 @@ export default async function HospitalCatalog({companyJson}:{companyJson:Promise
 
         <>
         Explore {CompanyJsonReady.count} Companies in our event
-            <div className="m-20 flex flex-row items-center justify-around flex-wrap p-10">
+            <div className="m-20 flex flex-row items-center justify-around flex-wrap p-10 ">
             {
-                CompanyJsonReady.data.map((CompanyItem:CompanyItem)=>(
+                CompanyJsonReady.data.map((CompanyItem)=>(
                     <Link href={`/company/${CompanyItem.id}`} className="w-1/5">
-                        <Card hospitalName={CompanyItem.name} imgSrc={CompanyItem.picture} />
+                        <Card companyName={CompanyItem.name} imgSrc={CompanyItem.picture} />
                     </Link>
                 ))
             }

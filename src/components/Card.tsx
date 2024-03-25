@@ -6,19 +6,19 @@ import { Rating } from "@mui/material";
 import { useState } from "react";
 
 export default function Card({
-  hospitalName,
+  companyName,
   imgSrc,
   onCompare,
 }: {
-  hospitalName: string;
+  companyName: string;
   imgSrc: string;
   onCompare?: Function;
 }) {
-  const [readable, setReadable] = useState(false);
-  const [value, setValue] = useState(5);
+
   return (
-    <InteractiveCard contentName={hospitalName}>
-      <div className="w-full h-[65%] relative rounded-t-lg">
+    <div className="mx-2 my-5">
+    <InteractiveCard contentName={companyName}>
+      <div className="w-full h-[65%] relative rounded-t-lg m-5">
         <Image
           src={imgSrc}
           alt="product picture"
@@ -28,22 +28,22 @@ export default function Card({
         />
       </div>
       <div className="w-full h-[15%] p-[10px]  hover:text-indigo-300">
-        {hospitalName}
+        {companyName}
       </div>
       {/* {
         onCompare?
         <div className="justify-col align-center block flex px-2">
         <Rating
-          name={`${hospitalName} Rating`}
-          id={`${hospitalName} Rating`}
+          name={`${companyName} Rating`}
+          id={`${companyName} Rating`}
           defaultValue={5}
           value={value}
           precision={0.5}
           readOnly={readable}
-          data-testid={`${hospitalName} Rating`}
+          data-testid={`${companyName} Rating`}
           onChange={(event, newValue) => {
             setValue(newValue || 0);
-            onCompare(hospitalName, newValue);
+            onCompare(companyName, newValue);
           }}
           onClick={(e) => {
             e.stopPropagation();
@@ -53,5 +53,6 @@ export default function Card({
       } */}
   
     </InteractiveCard>
+    </div>
   );
 }

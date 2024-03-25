@@ -5,9 +5,13 @@ import { LocalizationProvider } from "@mui/x-date-pickers"
 import { Select,MenuItem } from "@mui/material"
 import { Dayjs } from "dayjs"
 import { useState } from "react"
+import getCompanies from "@/libs/getCompanies"
 
 export default function DateReserve({onDateChange,onHospitalChange}
     :{onDateChange:Function,onHospitalChange:Function}){
+    
+    // const companies = await getCompanies();
+    // const CompanyJson = await companies;
 
     const [reserveDate,setReserveDate] = useState<Dayjs|null>(null)
     const [selectedHospital, setSelectedHospital] = useState<string|null>('Chula');
@@ -23,6 +27,12 @@ export default function DateReserve({onDateChange,onHospitalChange}
             <Select variant="standard" name='location' id='location'
             className="h-[2em] w-[200px]" value={selectedHospital}
             onChange={(event)=>{ const value = event.target.value; setSelectedHospital(value);onHospitalChange(value)}}>
+                {
+                    // CompanyJson.data.map((CompanyItem:CompanyItem)=>(
+                    //     <MenuItem>
+                    //     </MenuItem>
+                    // ))
+                }
                 <MenuItem value={'Chula'}>Chulalongkorn Hospital</MenuItem>
                 <MenuItem value={'Rajavithi'}>Rajavithi Hospital</MenuItem>
                 <MenuItem value={'Thammasat'}>Thammasat University Hospital </MenuItem>
