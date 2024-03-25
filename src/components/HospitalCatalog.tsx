@@ -2,26 +2,26 @@
 
 import Link from "next/link";
 import Card from "./Card";
-import getHospitals from "@/libs/getHospitals";
+import getCompanies from "@/libs/getCompanies";
 
 export default async function HospitalCatalog({hospitalJson}:{hospitalJson:Promise<HospitalJson>}){
 
-    var HospitalJsonReady = await hospitalJson;
-    if(!HospitalJsonReady){
-        HospitalJsonReady = await getHospitals();
+    var CompanyJsonReady = await hospitalJson;
+    if(!CompanyJsonReady){
+        CompanyJsonReady = await getCompanies();
     }
-    if(!HospitalJsonReady){
+    if(!CompanyJsonReady){
         throw new Error('failed to fetch Hospitals')
     }
     return(
 
         <>
-        Explore {HospitalJsonReady.count} Companies in our event
+        Explore {CompanyJsonReady.count} Companies in our event
             <div className="m-20 flex flex-row items-center justify-around flex-wrap p-10">
             {
-                HospitalJsonReady.data.map((HospitalItem:HospitalItem)=>(
-                    <Link href={`/hospital/${HospitalItem.id}`} className="w-1/5">
-                        <Card hospitalName={HospitalItem.name} imgSrc={HospitalItem.picture} />
+                CompanyJsonReady.data.map((CompanyItem:CompanyItem)=>(
+                    <Link href={`/hospital/${CompanyItem.id}`} className="w-1/5">
+                        <Card hospitalName={CompanyItem.name} imgSrc={CompanyItem.picture} />
                     </Link>
                 ))
             }

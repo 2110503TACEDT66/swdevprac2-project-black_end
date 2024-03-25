@@ -4,7 +4,7 @@ import Card from "./Card";
 import { useReducer, useState } from "react";
 import Link from "next/link";
 import { useRef,useEffect } from "react";
-import getHospitals from "@/libs/getHospitals";
+import getCompanies from "@/libs/getCompanies";
 
 export default function CardPanel() {
 
@@ -12,7 +12,7 @@ export default function CardPanel() {
 
   useEffect(()=>{
     const fetchData = async ()=>{
-      const hospitals = await getHospitals();
+      const hospitals = await getCompanies();
       setHospitalResponse(hospitals) 
     }
     fetchData()

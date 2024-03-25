@@ -28,11 +28,6 @@ interface CompanyItem {
     createAt:string
   }
 
-  // interface UserJson{
-  //   name:string,
-  //   tel:string,
-  //   email:string,
-  //   role:string,
-  // }
+
 
   
