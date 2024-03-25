@@ -1,5 +1,5 @@
+import Booking from "@/app/booking/page";
 import { createSlice,PayloadAction } from "@reduxjs/toolkit"; 
-
 
 type CompanyState ={
     companyItems:BookingItem[];
@@ -12,6 +12,7 @@ export const bookSlice=createSlice({
     initialState,
     reducers:{
         addBooking:(state,action:PayloadAction<BookingItem>)=>{
+            console.log(state.companyItems)
             const existingBookingIndex = state.companyItems.findIndex(booking => booking.id === action.payload.id);
             if(existingBookingIndex !== -1){
                 state.companyItems[existingBookingIndex] = action.payload;

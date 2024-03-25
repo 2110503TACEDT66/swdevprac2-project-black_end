@@ -9,9 +9,7 @@ import { useState,useEffect } from "react"
 import dayjs, { Dayjs } from "dayjs"
 import { useDispatch } from "react-redux"
 import { AppDispatch } from "@/redux/store"
-
 import { addBooking } from "@/redux/features/bookSlice"
-import { create } from "domain"
 
 export default function Booking(){
 
@@ -29,7 +27,7 @@ export default function Booking(){
                 id:citizenID,
                 company:chooseCompany,
                 interviewDate:dayjs(interviewDate).format('YYYY/MM/DD'),
-                createdAt:Date.now(),
+                createdAt:new Date(Date.now()),
                 name:fname,
                 surname:lastname,
             }
@@ -40,6 +38,7 @@ export default function Booking(){
             console.log(chooseCompany)
             console.log(dayjs(interviewDate).format('YYYY/MM/DD'))
             dispatch(addBooking(item));
+            console.log(item.company)
         }
         if(!fname){
             alert('fname');
@@ -59,8 +58,7 @@ export default function Booking(){
     }
 
     const [interviewDate,setinterviewDate] = useState<Dayjs|null>(null)
-    const [chooseCompany, setchooseCompany] = useState<string|null>('Chula');
-
+    const [chooseCompany, setchooseCompany] = useState<string|null>('Apple');
     const [fname, setFName] = useState('');
     const [lastname, setLastname] = useState('');
     const [citizenID, setCitizenID] = useState('');

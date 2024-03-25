@@ -10,7 +10,13 @@ export default async function TopMenu(){
     const session = await getServerSession(authOptions)
     return(
         <div className={styles.menucontainer}>
-            
+            <Link href='/' >
+                    <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
+                     text-indigo-600 hover:text-indigo-500 bg-blue-200 hover:bg-sky-200 text-sm
+                     flex-start top-2 mx-2 hover:underline' >
+                        Home Button
+                    </div>
+                </Link>
             {
                 session?<Link href='/api/auth/signout'>
                     <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
@@ -28,6 +34,7 @@ export default async function TopMenu(){
                     </div>
                 </Link>
             }
+        
             <Link href='/mybooking' >
                     <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
                      text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
