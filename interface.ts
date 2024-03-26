@@ -19,6 +19,7 @@ interface CompanyItem {
   }
 
   interface BookingItem{
+    token:string,
     id:string,
     company:string,
     interviewDate:string,

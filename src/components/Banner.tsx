@@ -5,6 +5,7 @@ import styles from "./banner.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import getUserProfile from "@/libs/getUserProfile";
 
 
 export default function Banner({user} : {user?:userJSON}) {
