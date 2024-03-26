@@ -10,6 +10,7 @@ import dayjs, { Dayjs } from "dayjs"
 import { useDispatch } from "react-redux"
 import { AppDispatch } from "@/redux/store"
 import { addBooking } from "@/redux/features/bookSlice"
+import { useSession } from "next-auth/react"
 
 export default function Booking(){
 
@@ -18,12 +19,13 @@ export default function Booking(){
     // if(!session || !session.user.token) return null
     // const profile = await getUserProfile(session.user.token.toString())
     // var createdAt = new Date(profile.data.createdAt);
-
+    const {data:session} = useSession();
     const dispatch = useDispatch<AppDispatch>();
     const MakeBooking = () =>{
         console.log('Booking Interview in progress')
         if(fname && lastname && citizenID && interviewDate && chooseCompany){
             const item:BookingItem = {
+                token:session?.user.token || 'no token',
                 id:citizenID,
                 company:chooseCompany,
                 interviewDate:dayjs(interviewDate).format('YYYY/MM/DD'),
@@ -108,6 +110,11 @@ export default function Booking(){
             onClick={MakeBooking}>
                 Book Interview Sessions
             </Button>
+            {
+                // if(MakeBooking){
+                //     <p className="text-white"> submit success fully</p>
+                // }
+            }
             </div>
             
         </main>
