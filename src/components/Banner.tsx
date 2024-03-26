@@ -8,13 +8,11 @@ import { useSession } from "next-auth/react";
 import getUserProfile from "@/libs/getUserProfile";
 
 
-export default function Banner() {
+export default function Banner({user} : {user?:userJSON}) {
 
   const router = useRouter();
   const {data:session} = useSession();  
-  console.log(session?.user.name)
-
-
+  console.log(session)
 
   return (
     <div
@@ -34,8 +32,7 @@ export default function Banner() {
         {
           session? <div className="z-30 absolute top-5 right-10 font-semibold 
           text-rose-500 text-xl bg-rose-200 hover:bg-rose-100 rounded-lg p-2 transition transform duration-200 ease hover:-translate-y-2">
-             Welcome {session.user?.name} </div>:null
-            
+             Welcome {user?.data.name} </div> : null
         }
         <button
           className="bg-white text-indigo-600 border border-indigo-600 

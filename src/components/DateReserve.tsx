@@ -8,11 +8,11 @@ import { useState } from "react"
 import getCompanies from "@/libs/getCompanies"
 import { useEffect } from "react"
 
-export default function DateReserve({onDateChange,onHospitalChange}
-    :{onDateChange:Function,onHospitalChange:Function}){
+export default function DateReserve({onDateChange,onCompanyChange}
+    :{onDateChange:Function,onCompanyChange:Function}){
     
         const [reserveDate, setReserveDate] = useState<Dayjs|null>(null)
-        const [selectedHospital, setSelectedHospital] = useState<string|null>('Chula');
+        const [selectedCompany, setSelectedCompany] = useState<string|null>('Chula');
         const [companyJson, setCompanyJson] = useState<CompanyJson|null>(null);
     
         useEffect(() => {
@@ -36,8 +36,8 @@ export default function DateReserve({onDateChange,onHospitalChange}
             </LocalizationProvider>
 
             <Select variant="standard" name='location' id='location'
-            className="h-[2em] w-[200px]" value={selectedHospital}
-            onChange={(event)=>{ const value = event.target.value; setSelectedHospital(value);onHospitalChange(value)}}>
+            className="h-[2em] w-[200px]" value={selectedCompany}
+            onChange={(event)=>{ const value = event.target.value; setSelectedCompany(value);onCompanyChange(value)}}>
                 {
                     companyJson && companyJson.data.map((CompanyItem:CompanyItem)=>(
                         <MenuItem key={CompanyItem.id} value={CompanyItem.name}>

@@ -5,10 +5,19 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import Link from 'next/link';
 import { ClassNames } from '@emotion/react';
+import getUserProfile from '@/libs/getUserProfile';
 
 export default async function TopMenu(){
 
     const session = await getServerSession(authOptions)
+
+    var profile;
+
+    if (session) {
+        profile = await getUserProfile(session.user.token)
+    }
+    
+    
     return(
         <div className={styles.menucontainer}>
             <Link href='/' >
@@ -19,12 +28,13 @@ export default async function TopMenu(){
                     </div>
                 </Link>
             {
-                session?<Link href='/api/auth/signout'>
+                session?
+                <Link href='/api/auth/signout'>
                     <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
                      text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
                       left-10 top-2'
                       >
-                        Sign Out of {session.user?.name}
+                        Sign Out of {profile.data.name}
                     </div>
                 </Link>
                 :(
