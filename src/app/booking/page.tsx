@@ -101,7 +101,7 @@ export default function Booking(){
             </div>
             <div className="p-10">
             <DateReserve onDateChange={(value:Dayjs)=>{setinterviewDate(value)}} 
-            onHospitalChange={(value:string)=>{setchooseCompany(value)}} />
+            onCompanyChange={(value:string)=>{setchooseCompany(value)}} />
             </div>
             <Button name='Book Vaccine' 
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full align-left "
