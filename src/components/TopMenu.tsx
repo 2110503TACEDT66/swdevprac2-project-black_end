@@ -4,6 +4,7 @@ import TopMenuItem from './TopMenuItem';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import Link from 'next/link';
+import { ClassNames } from '@emotion/react';
 
 export default async function TopMenu(){
 
@@ -26,13 +27,24 @@ export default async function TopMenu(){
                         Sign Out of {session.user?.name}
                     </div>
                 </Link>
-                :<Link href='api/auth/signin' >
-                    <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
+                :(
+                    <> 
+                    <Link href='api/auth/signin' >
+                    <div id='sigin-button' className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
                      text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
-                      left-10 top-2' >
+                      left-10 top-2 mx-2' >
                         Sign in 
                     </div>
                 </Link>
+                    <Link href='/register' >
+                    <div id='sigin-button' className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
+                     text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
+                      left-10 top-2' >
+                        Register
+                    </div>
+                </Link></>
+                )
+
             }
         
             <Link href='/mybooking' >
