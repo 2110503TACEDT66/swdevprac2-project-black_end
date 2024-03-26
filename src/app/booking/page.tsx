@@ -17,17 +17,13 @@ export default function Booking() {
     const {data:session} = useSession();
     const dispatch = useDispatch<AppDispatch>();
     const MakeBooking = () =>{
+        var token = ''
+        if (session) {
+            token = session.user.token
+        }
         if(fname && lastname && citizenID && interviewDate && chooseCompany){
-            const item:BookingItem = {
-                token: session?.user.token || 'no token',
-                id: citizenID,
-                company: chooseCompany,
-                interviewDate: dayjs(interviewDate).format('YYYY-MM-DD'),
-                createdAt: new Date(Date.now()),
-                name: fname,
-                surname: lastname,
-            }
-            addInterview(item.token, item.company, item.interviewDate).then( () => {
+            var date = dayjs(interviewDate).format('YYYY-MM-DD')
+            addInterview(token, chooseCompany, date).then( () => {
                 alert('Booking Interview Successful')
                 setFName('')
                 setLastname('')
