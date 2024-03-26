@@ -41,6 +41,11 @@ export default async function CompanyDetailPage({params}:{params:{cid:string}}){
                     <Link href={companyDetail.data.website} className="hover:text-sky-400"> {companyDetail.data.website}</Link>
                     </div>
                     <div>Tel. : {companyDetail.data.tel}</div>
+                    <Link href={`/booking?id=${params.cid}`}>
+                        <button className="block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 text-white shadow-sm">
+                             Make Booking
+                        </button>
+                    </Link>
                 </div>
             </div>
         </main>
