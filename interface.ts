@@ -41,7 +41,7 @@ interface CompanyItem {
 
   interface userJSON{
     success: string;
-    data: user[]
+    data: user
   }
 
   
