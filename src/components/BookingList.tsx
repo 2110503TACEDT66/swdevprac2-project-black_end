@@ -25,12 +25,12 @@ export default function BookingList(){
                     </button>
                     
                     <div className="m-5">
-                    <div className="text-sm m-2">Name : </div>
+                    <div className="text-sm m-2">Name : {BookingItem.name}</div>
                     <div className="text-sm m-2">Citizen ID : {BookingItem.id} </div>
                     </div>
                     <div className="m-5">
-                    <div className="text-sm m-2">Hospital :  {BookingItem.company} </div>
-                    <div className="text-sm m-2">Date : {BookingItem.createAt} </div>
+                    <div className="text-sm m-2">Selected Company :  {BookingItem.company} </div>
+                    <div className="text-sm m-2">Booking Date : {BookingItem.interviewDate} </div>
                     </div>
 
                 </div>
