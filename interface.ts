@@ -19,13 +19,18 @@ interface CompanyItem {
   }
 
   interface BookingItem{
-    token:string,
-    id:string,
-    company:string,
-    interviewDate:string,
-    createdAt:Date,
-    name:string,
-    surname:string
+    _id: string,
+    interviewDate: string,
+    user: string,
+    company: CompanyItem,
+    createdAt: Date,
+    __v: number
+  }
+
+  interface BookingJson{
+    success: boolean,
+    count: number,
+    data: BookingItem[];
   }
 
   interface user{
@@ -40,13 +45,8 @@ interface CompanyItem {
   }
 
   interface userJSON{
-    success: string;
+    success: boolean,
     data: user
-  }
-  
-  interface bookingJson{
-    success: string;
-    data:BookingItem;
   }
 
   

@@ -5,7 +5,7 @@ export default async function getInterviews(token:string) {
             authorization: `Bearer ${token}`,
         },
     })
-    if(!response){
+    if(!response.ok){
         throw new Error('Failed to fetch interviews')
     }
     return await response.json();

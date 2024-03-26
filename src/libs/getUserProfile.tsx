@@ -5,7 +5,7 @@ export default async function getUserProfile(token:string) {
             authorization: `Bearer ${token}`,
         },
     })
-    if(!response){
+    if(!response.ok){
         throw new Error('Failed to fetch user profile')
     }
     return await response.json();
