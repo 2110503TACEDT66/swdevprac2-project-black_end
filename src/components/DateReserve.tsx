@@ -13,7 +13,7 @@ export default function DateReserve({onDateChange,onHospitalChange}
     
         const [reserveDate, setReserveDate] = useState<Dayjs|null>(null)
         const [selectedHospital, setSelectedHospital] = useState<string|null>('Chula');
-        const [companyJson, setCompanyJson] = useState(null);
+        const [companyJson, setCompanyJson] = useState<CompanyJson|null>(null);
     
         useEffect(() => {
             const fetchData = async () => {
@@ -39,7 +39,7 @@ export default function DateReserve({onDateChange,onHospitalChange}
             className="h-[2em] w-[200px]" value={selectedHospital}
             onChange={(event)=>{ const value = event.target.value; setSelectedHospital(value);onHospitalChange(value)}}>
                 {
-                    companyJson && companyJson.data.map((CompanyItem)=>(
+                    companyJson && companyJson.data.map((CompanyItem:CompanyItem)=>(
                         <MenuItem key={CompanyItem.id} value={CompanyItem.name}>
                         {CompanyItem.name}
                         </MenuItem>
