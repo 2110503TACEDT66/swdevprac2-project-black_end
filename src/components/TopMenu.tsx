@@ -24,7 +24,7 @@ export default async function TopMenu(){
                     <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
                      text-indigo-600 hover:text-indigo-500 bg-blue-200 hover:bg-sky-200 text-sm
                      flex-start top-2 mx-2 hover:underline' >
-                        Home Button
+                        Home
                     </div>
                 </Link>
             {

@@ -43,6 +43,7 @@ interface CompanyItem {
     success: string;
     data: user
   }
+  
   interface bookingJson{
     success: string;
     data:BookingItem;

@@ -12,7 +12,7 @@ export default function DateReserve({onDateChange,onCompanyChange}
     :{onDateChange:Function,onCompanyChange:Function}){
     
         const [reserveDate, setReserveDate] = useState<Dayjs|null>(null)
-        const [selectedCompany, setSelectedCompany] = useState<string|null>('Chula');
+        const [selectedCompany, setSelectedCompany] = useState<string|null>(null);
         const [companyJson, setCompanyJson] = useState<CompanyJson|null>(null);
     
         useEffect(() => {
@@ -40,8 +40,8 @@ export default function DateReserve({onDateChange,onCompanyChange}
             onChange={(event)=>{ const value = event.target.value; setSelectedCompany(value);onCompanyChange(value)}}>
                 {
                     companyJson && companyJson.data.map((CompanyItem:CompanyItem)=>(
-                        <MenuItem key={CompanyItem.id} value={CompanyItem.name}>
-                        {CompanyItem.name}
+                        <MenuItem key={CompanyItem.id} value={CompanyItem.id}>
+                            {CompanyItem.name}
                         </MenuItem>
                     ))
                 }
