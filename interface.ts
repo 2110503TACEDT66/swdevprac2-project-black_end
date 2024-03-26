@@ -22,6 +22,7 @@ interface CompanyItem {
     _id: string,
     interviewDate: string,
     user: string,
+    name: string,
     company: CompanyItem,
     createdAt: Date,
     __v: number

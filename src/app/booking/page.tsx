@@ -23,7 +23,11 @@ export default function Booking() {
         }
         if(fname && lastname && citizenID && interviewDate && chooseCompany){
             var date = dayjs(interviewDate).format('YYYY-MM-DD')
-            addInterview(token, chooseCompany, date).then( () => {
+            const item:any = {
+                interviewDate: date,
+                name: fname + ' ' + lastname
+            }
+            addInterview(token, chooseCompany, item).then( () => {
                 alert('Booking Interview Successful')
                 setFName('')
                 setLastname('')

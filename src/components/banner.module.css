@@ -3,7 +3,7 @@
     padding: 5px;
     margin: 0;
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     position: relative;
 }
 
@@ -25,17 +25,17 @@
     display: block;
 }
 
-.banner:hover .bannerText h3{
+.bannerText:hover h3{
     opacity: 1; 
 }
-.banner:hover .bannerText h1{
+.bannerText:hover h1{
     font-weight: 600;
 }
-.banner:hover .bannerText {
+.bannerText:hover {
     opacity: 1; 
     transform:  scale(150%);
 }
-.banner:hover .bannerImg {
+.bannerText:hover .bannerImg {
     opacity: 0.8;
 }
 

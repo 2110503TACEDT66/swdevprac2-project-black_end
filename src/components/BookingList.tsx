@@ -85,6 +85,7 @@ export default function BookingList({user, interviewJson, token} : {user:userJSO
                             <div className="m-5">
                             <div className="text-sm m-2 text-black font-semibold">Selected Company : {BookingItem.company.name} </div>
                             <div className="text-sm m-2 text-black font-semibold">Booking Date : {BookingItem.interviewDate} </div>
+                            <div className="text-sm m-2 text-black font-semibold">Name : {BookingItem.name} </div>
                             </div>
                         </>:''
                     }
@@ -111,6 +112,7 @@ export default function BookingList({user, interviewJson, token} : {user:userJSO
                             <div className="m-5">
                             <div className="text-sm m-2 text-black font-semibold">Selected Company : {BookingItem.company.name} </div>
                             <div className="text-sm m-2 text-black font-semibold">Booking Date : {BookingItem.interviewDate} </div>
+                            <div className="text-sm m-2 text-black font-semibold">Name : {BookingItem.name} </div>
                             </div>
                         </>:''
                     }

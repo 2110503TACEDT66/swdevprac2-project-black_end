@@ -30,7 +30,7 @@ export default function Banner({user} : {user?:userJSON}) {
           <h3 className="text-xl font-serif ">Unlock Your Potential and Secure Your Dream Job - Register Now!</h3>
         </div>
         {
-          session? <div className="z-30 absolute top-5 right-10 font-semibold 
+          session? <div className="z-30 absolute top-0 right-0 font-semibold m-3
           text-rose-500 text-xl bg-rose-200 hover:bg-rose-100 rounded-lg p-2 transition transform duration-200 ease hover:-translate-y-2">
              Welcome {user?.data.name} </div> : null
         }
