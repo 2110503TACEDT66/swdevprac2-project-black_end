@@ -4,7 +4,7 @@ import Link from "next/link";
 import Card from "./Card";
 import getCompanies from "@/libs/getCompanies";
 
-export default async function HospitalCatalog({companyJson}:{companyJson:Promise<companyJson>}){
+export default async function HospitalCatalog({companyJson}:{companyJson:Promise<CompanyJson>}){
 
     var CompanyJsonReady = await companyJson;
     if(!CompanyJsonReady){
