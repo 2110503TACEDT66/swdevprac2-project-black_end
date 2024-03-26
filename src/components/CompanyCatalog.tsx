@@ -1,5 +1,3 @@
-'use client'
-
 import Link from "next/link";
 import Card from "./Card";
 import getCompanies from "@/libs/getCompanies";
@@ -13,6 +11,7 @@ export default async function CompanyCatalog({companyJson}:{companyJson:Promise<
     if(!CompanyJsonReady){
         throw new Error('Failed to fetch Companies')
     }
+
     return(
 
         <>
@@ -21,7 +20,7 @@ export default async function CompanyCatalog({companyJson}:{companyJson:Promise<
             {
                 CompanyJsonReady.data.map((CompanyItem)=>(
                     <Link href={`/company/${CompanyItem.id}`} className="w-1/5">
-                        <Card companyName={CompanyItem.name} imgSrc={CompanyItem.picture} />
+                        <Card companyName={CompanyItem.name} imgSrc={CompanyItem.quote} />
                     </Link>
                 ))
             }

@@ -25,7 +25,7 @@ export default async function CompanyDetailPage({params}:{params:{cid:string}}){
         <main className="text-center p-5">
             <h1 className="text-lg font-medium "> Company: {companyDetail.data.name}</h1>
             <div className="flex flex-row my-5">
-                <Image src={companyDetail.data.picture}
+                <Image src={companyDetail.data.quote}
                 alt="company Picture"
                 width={0} height={0} sizes="100vw"
                 className="rounded-lg w-[30%] bg-black"
@@ -34,7 +34,6 @@ export default async function CompanyDetailPage({params}:{params:{cid:string}}){
                 <h3 className="text-lg font-bold">
                 {companyDetail.data.name}
                 </h3>
-                    <div>Quote : {companyDetail.data.quote}</div>
                     <div>Description : {companyDetail.data.description}</div>
                     <div>Address : {companyDetail.data.address}</div>
                     <div>

@@ -1,5 +1,3 @@
-'use client'
-
 import CompanyCatalog from "@/components/CompanyCatalog";
 import getCompanies from "@/libs/getCompanies";
 import { LinearProgress } from "@mui/material";

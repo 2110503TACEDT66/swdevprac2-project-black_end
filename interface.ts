@@ -2,13 +2,13 @@ interface CompanyItem {
     _id: string,
     name: string,
     address: string,
+    website:string,
+    description:string,
     tel: string,
+    quote:string,
     picture: string,
     __v: number,
     id: string,
-    website:string,
-    description:string,
-    quote:string
   }
   
   interface CompanyJson {
@@ -36,7 +36,7 @@ interface CompanyItem {
     profile_picture: string,
     createdAt: string,
     token: string
-}
+  }
 
   interface userJSON{
     success: string;
