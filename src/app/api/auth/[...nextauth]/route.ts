@@ -1,4 +1,4 @@
-import userLogIn from '../../../../libs/userLogIn';
+import userLogIn from '@/libs/userLogIn';
 import NextAuth from 'next-auth';
 import { AuthOptions } from 'next-auth';
 import  CredentialsProvider  from 'next-auth/providers/credentials';
@@ -19,7 +19,7 @@ export const authOptions:AuthOptions = {
           },
           async authorize(credentials, req) {
             if(!credentials) return null
-            const user = await userLogIn(credentials.email,credentials.password)
+            const user = await userLogIn(credentials.email, credentials.password)
 
             if (user) {
               // Any object returned will be saved in `user` property of the JWT
@@ -34,17 +34,16 @@ export const authOptions:AuthOptions = {
         })
       ],
     session: { strategy:'jwt'},
-
-      // callback for more data 
-      callbacks:{
-        async jwt({token,user}) {
-          return {...token,...user}
-        },
-        async session({session,token,user}) {
-          session.user = token as any
-          return session
-        },
+    // callback for more data 
+    callbacks:{
+      async jwt({token, user}) {
+        return {...token, ...user}
+      },
+      async session({session, token, user}) {
+        session.user = token as any
+        return session
       }
+    }
 }
 const handler = NextAuth(authOptions)
 export {handler as GET ,handler as POST};

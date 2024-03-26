@@ -3,7 +3,7 @@ export default async function getCompanies(){
 
     const response = await fetch("https://jobfair-backend.vercel.app/api/v1/companies")
     if(!response.ok){
-        throw new Error('Failed to fetch hospitals')
+        throw new Error('Failed to fetch companies')
     }
     return await response.json();
 }
