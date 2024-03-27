@@ -19,6 +19,8 @@ export default function Card({
           src={imgSrc}
           alt="Company Picture"
           fill={true}
+          priority
+          sizes="100vh"
           className="object-cover rounded-t-lg transition transform"
         />
       </div>

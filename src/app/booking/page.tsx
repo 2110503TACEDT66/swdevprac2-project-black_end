@@ -86,6 +86,9 @@ export default function Booking() {
                 </table> 
             </div>
             <div className="p-10">
+            <div className="text-black">
+                Pick a Date between 05-10-2022 and 05-13-2022
+            </div>
             <DateReserve 
                 onDateChange={(value:Dayjs)=>{setinterviewDate(value)}} 
                 onCompanyChange={(value:string)=>{setchooseCompany(value)}} />

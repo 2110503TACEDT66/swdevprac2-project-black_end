@@ -24,6 +24,8 @@ export default function Banner({user} : {user?:userJSON}) {
           src='/img/cover.jpg'
           alt="cover"
           fill={true}
+          priority
+          sizes="100vh"
           objectFit="cover"
         />
         <Link href='/company' color='inherit' underline="none">
