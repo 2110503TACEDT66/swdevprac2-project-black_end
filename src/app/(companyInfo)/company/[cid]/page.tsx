@@ -1,26 +1,27 @@
+'use client'
+
 import Image from "next/image"
 import getCompany from "@/libs/getCompany";
 import Link from "next/link";
+import { LinearProgress } from "@mui/material";
+import { useEffect, useState } from "react";
 
-export default async function CompanyDetailPage({params}:{params:{cid:string}}){
-    
-    const companyDetail = await getCompany(params.cid);
+export default function CompanyDetailPage({params}:{params:{cid:string}}){
 
+    const [companyDetail, setCompanyDetail] = useState<any>(null);
 
+    useEffect(() => {
+        const fetchCompany = async () => {
+            const data = await getCompany(params.cid);
+            setCompanyDetail(data);
+        };
 
-    // const mockHospitalRepo = new Map()
-    // mockHospitalRepo.set('001',{
-    //     name:'Chulalongkorn Hospital',
-    //     image:'/img/Chula.jpg'
-    // });
-    // mockHospitalRepo.set('002',{
-    //     name:'Rajavithi Hospital',
-    //     image:'/img/rajavithi.jpg'
-    // });
-    // mockHospitalRepo.set('003',{
-    //     name:'Thammasat University Hospital',
-    //     image:'/img/thammasat.jpg'
-    // })
+        fetchCompany();
+    }, [params.cid]);
+
+    if (!companyDetail) {
+        return <div>Loading...<LinearProgress/></div>;
+    }
     return(
         <main className="text-center p-5">
             <h1 className="text-lg font-medium "> Company: {companyDetail.data.name}</h1>
@@ -51,7 +52,3 @@ export default async function CompanyDetailPage({params}:{params:{cid:string}}){
         </main>
     )
 }
-
-// export async function generateStaticParams() {
-//     return [{cid:'001'},{cid:'002'},{cid:'003'}]
-// }
