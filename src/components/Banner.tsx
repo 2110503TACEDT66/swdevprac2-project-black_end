@@ -28,8 +28,8 @@ export default function Banner({user} : {user?:userJSON}) {
         />
         <Link href='/company' color='inherit' underline="none">
           <div className={styles.bannerText}>
-            <h1 className="text-4xl">Online Job Fair Registration</h1>
-            <h3 className="text-xl font-serif ">Unlock Your Potential and Secure Your Dream Job - Register Now!</h3>
+            <h1 className="text-4xl text-white">Online Job Fair Registration</h1>
+            <h3 className="text-xl font-serif text-white">Unlock Your Potential and Secure Your Dream Job - Register Now!</h3>
           </div>
         </Link>
         {
