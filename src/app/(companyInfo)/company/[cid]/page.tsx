@@ -28,7 +28,7 @@ export default async function CompanyDetailPage({params}:{params:{cid:string}}){
                 <Image src={companyDetail.data.quote}
                 alt="company Picture"
                 width={0} height={0} sizes="100vw"
-                className="rounded-lg w-[30%] bg-black"
+                className="rounded-lg w-[30%] bg-black shadow-xl shadow-slate-500/50"
                 />
                 <div className="text-md mx-5 text-left"> 
                 <h3 className="text-lg font-bold">

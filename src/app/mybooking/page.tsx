@@ -28,6 +28,9 @@ export default async function MyBookingPage(){
     
     return(
         <main className="my-5 text-center flex flex-col">
+            <div className="text-2xl font-medium text-center text-teal-500 mt-8 transition transform duration-150 hover:text-cyan-900">
+                Your Interview Sessions
+            </div>
             <BookingList user={profile} token={token} interviewJson={interviewsJsonReady}></BookingList>
         </main>
     )

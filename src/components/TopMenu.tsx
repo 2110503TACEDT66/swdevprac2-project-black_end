@@ -19,11 +19,12 @@ export default async function TopMenu(){
     
     
     return(
-        <div className={styles.menucontainer}>
+        <div className='h-[50px] bg-neutral-900 border-neutral-700 border-t-0 border-l-0 border-r-0 border-2 fixed top-0 right-0 z-30 flex flex-row
+        rounded-b-lg w-[100vw] items-center pl-[10px] pr-[50px]'>
             <Link href='/' >
-                    <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
-                     text-indigo-600 hover:text-indigo-500 bg-blue-200 hover:bg-sky-200 text-sm
-                     flex-start top-2 mx-2 hover:underline' >
+                    <div className='flex items-center h-[70%] px-2 py-2 rounded-lg 
+                     text-black bg-white text-sm
+                     flex-start top-2 mx-2 transition transform duration-200 ease hover:scale-105' >
                         Home
                     </div>
                 </Link>
@@ -31,36 +32,40 @@ export default async function TopMenu(){
                 session?
                 <>
                     <Link href='/api/auth/signout'>
-                        <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
-                        text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
-                        left-10 top-2'>
+                        <div className='flex items-center h-[70%] px-2 py-2 rounded-lg 
+                        text-black bg-white text-sm
+                        left-10 top-2 transition transform duration-200 ease hover:scale-105'>
                             Sign Out of {profile.data.name}
                         </div>
                     </Link>
                     <Link href='/mybooking' >
-                        <div className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
-                        text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
-                        flex-start top-2 mx-2 hover:underline'>
-                            My Booking
+                        <div className='flex items-center h-[70%] px-2 py-2 rounded-lg 
+                            text-black bg-white text-sm
+                            flex-start top-2 mx-2 transition transform duration-200 ease hover:scale-105'>
+                                My Booking
                         </div>
                     </Link>
-                    <div className='absolute right-20'>
-                        <TopMenuItem title='Booking' pageRef='/booking'/>
-                    </div>
+                    <Link href='/booking'>
+                        <div className='absolute right-20 h-[70%] px-2 py-2 rounded-lg 
+                            text-black bg-white text-sm
+                            flex-start top-2 mx-2 transition transform duration-200 ease hover:scale-105'>
+                                Booking
+                        </div>
+                    </Link>
                 </>
                 :(
                     <> 
                         <Link href='api/auth/signin' >
-                            <div id='sigin-button' className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
-                            text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
-                            left-10 top-2 mx-2' >
+                            <div id='sigin-button' className='flex items-center h-[70%] px-2 py-2 rounded-lg 
+                            text-black bg-white text-sm
+                            flex-start top-2 mx-2 transition transform duration-200 ease hover:scale-105'>
                                 Sign in 
                             </div>
                         </Link>
                             <Link href='/register' >
-                            <div id='sigin-button' className='flex items-center  h-[70%] px-2 py-2 rounded-lg 
-                            text-indigo-500 hover:text-indigo-500 bg-cyan-200 hover:bg-cyan-100 text-sm
-                            left-10 top-2' >
+                            <div id='tegister-button' className='flex items-center h-[70%] px-2 py-2 rounded-lg 
+                            text-black bg-white text-sm
+                            flex-start top-2 mx-2 transition transform duration-200 ease hover:scale-105'>
                                 Register
                             </div>
                         </Link>

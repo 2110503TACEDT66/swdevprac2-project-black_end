@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import getUserProfile from "@/libs/getUserProfile";
+import { Link } from "@mui/material";
 
 
 export default function Banner({user} : {user?:userJSON}) {
@@ -25,25 +26,27 @@ export default function Banner({user} : {user?:userJSON}) {
           fill={true}
           objectFit="cover"
         />
-        <div className={styles.bannerText}>
-          <h1 className="text-4xl">Online Job Fair Registration</h1>
-          <h3 className="text-xl font-serif ">Unlock Your Potential and Secure Your Dream Job - Register Now!</h3>
-        </div>
+        <Link href='/company' color='inherit' underline="none">
+          <div className={styles.bannerText}>
+            <h1 className="text-4xl">Online Job Fair Registration</h1>
+            <h3 className="text-xl font-serif ">Unlock Your Potential and Secure Your Dream Job - Register Now!</h3>
+          </div>
+        </Link>
         {
-          session? <div className="z-30 absolute top-0 right-0 font-semibold m-3
-          text-rose-500 text-xl bg-rose-200 hover:bg-rose-100 rounded-lg p-2 transition transform duration-200 ease hover:-translate-y-2">
+          session? <div className="bg-rose-200 text-rose-500 border border-rose-500 font-semibold z-30 absolute top-0 right-0 m-3
+          hover:bg-rose-500 rounded-lg p-2 hover:text-white hover:border-transparent transition transform duration-200 ease hover:-translate-y-2">
              Welcome {user?.data.name} </div> : null
         }
         <button
           className="bg-white text-indigo-600 border border-indigo-600 
-        font-semibold py-2 px-2 m-2 rounded z-30 absolute bottom-0 right-0
-        hover:bg-indigo-600 hover:text-white hover:border-transparent"
+        font-semibold py-2 px-2 m-2 rounded-lg z-30 absolute bottom-0 right-0
+        hover:bg-indigo-600 hover:text-white hover:border-transparent transition transform duration-200 ease hover:-translate-y-2"
           onClick={(e) => {
             e.stopPropagation();
             router.push("/company");
           }}
         >
-          Select Company you wanna join
+          Companies
         </button>
       </div>
     </div>

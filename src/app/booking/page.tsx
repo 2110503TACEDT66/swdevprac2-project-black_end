@@ -49,7 +49,7 @@ export default function Booking() {
 
     return(
         <main className="w-[100%] flex flex-col items-center space-y-10">
-            <div className="text-2xl font-medium underline text-center text-teal-500 mt-8 transition transform duration-150 hover:text-cyan-900">
+            <div className="text-2xl font-medium text-center text-teal-500 mt-8 transition transform duration-150 hover:text-cyan-900">
                 Interview Session Booking
             </div>
             <div className=" bg-blue-200 p-10 rounded-lg ring-2 items-center flex flex-col">

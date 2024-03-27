@@ -12,7 +12,7 @@ export default function Card({
 }) {
 
   return (
-    <div className="mx-2 my-5 hover:-translate-y-1 duration-150 ease">
+    <div className="mx-2 my-5 hover:-translate-y-1 duration-150 ease shadow-xl shadow-slate-500/50">
     <InteractiveCard contentName={companyName}>
       <div className="w-full h-[65%] relative rounded-t-lg">
         <Image
